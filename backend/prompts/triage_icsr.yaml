@@ -1,0 +1,126 @@
+name: triage_icsr
+version: "1.0"
+max_tokens: 1200
+temperature: 0.0
+
+# The AI's job is strictly OBSERVATION, not determination. It reports what the
+# source text says about the four ICSR minimum criteria and quotes its evidence.
+# It does NOT decide whether the record is a valid ICSR — the deterministic
+# val_001 rule set does that. Keeping the boundary explicit in the prompt is
+# what makes the "AI proposes, rules decide" split real rather than decorative.
+system_prompt: |
+  You are a pharmacovigilance intake triage assistant.
+
+  Your ONLY job is to report what the source text states. You do NOT decide
+  whether the report is a valid ICSR, whether it is serious, or whether it must
+  be reported. A separate deterministic rules engine makes those decisions.
+
+  For each of the four ICSR minimum criteria, report whether the source text
+  contains it, and quote the exact supporting text.
+
+  Definitions:
+  - identifiable_patient: the text describes a specific person who experienced
+    the event. Any of age, age group, sex, initials, or an unambiguous
+    reference to one individual is sufficient. "A patient" with no further
+    detail is NOT sufficient. Groups ("several people") are NOT sufficient.
+  - identifiable_reporter: the text identifies who is reporting. A name,
+    profession (physician, pharmacist, nurse), an author, or an explicit
+    first-person account by the patient are all sufficient.
+  - suspect_product: a specific medicinal product is named as taken or
+    administered. A general drug class alone is NOT sufficient.
+  - adverse_event: an unwanted medical occurrence, sign, symptom, or
+    abnormal test result is described following product use.
+
+  Rules you must obey:
+  - Quote evidence VERBATIM from the source. Never paraphrase a quote.
+  - If a criterion is absent, set present=false and leave the quote empty.
+  - Never infer facts that are not stated. Absence of evidence is not evidence.
+  - Report the confidence you have in your own reading, 0.0 to 1.0.
+
+user_template: |
+  Analyse the following source text.
+
+  Channel: {channel}
+  Source text:
+  ---
+  {source_text}
+  ---
+
+  Report the four ICSR minimum criteria with verbatim evidence quotes.
+
+# Mirrors atheria_contracts.source_record.ICSRElements so the response maps
+# straight onto the contract with no ad-hoc translation.
+output_schema:
+  type: object
+  properties:
+    identifiable_patient:
+      type: object
+      properties:
+        present: {type: boolean}
+        evidence_quote: {type: string}
+      required: [present, evidence_quote]
+    identifiable_reporter:
+      type: object
+      properties:
+        present: {type: boolean}
+        evidence_quote: {type: string}
+      required: [present, evidence_quote]
+    suspect_product:
+      type: object
+      properties:
+        present: {type: boolean}
+        evidence_quote: {type: string}
+      required: [present, evidence_quote]
+    adverse_event:
+      type: object
+      properties:
+        present: {type: boolean}
+        evidence_quote: {type: string}
+      required: [present, evidence_quote]
+    product_names:
+      type: array
+      description: >
+        Every medicinal product named in the source, quoted verbatim.
+        Empty array only if no product is named.
+      items: {type: string}
+    event_terms:
+      type: array
+      description: >
+        Every adverse event, symptom, or abnormal finding described, quoted
+        verbatim. Empty array only if no event is described.
+      items: {type: string}
+    content_type:
+      type: string
+      description: >
+        Primary nature of the content. Use "ae" whenever an adverse event is
+        described, even if other aspects are also present. Use "mi_enquiry" for
+        a pure medical-information question with no event. Use "none" ONLY when
+        no pharmacovigilance-relevant content exists at all.
+      enum: [ae, pqc, mi_enquiry, off_label, pregnancy, misuse, abuse, overdose, medication_error, lack_of_effect, occupational_exposure, counterfeit, none]
+    patient_count:
+      type: integer
+      description: Number of distinct patients described. 0 if none.
+    seriousness_signal:
+      type: boolean
+      description: >
+        True if the text mentions death, a life-threatening situation,
+        hospitalisation, disability, congenital anomaly, or another medically
+        important event. This is a SIGNAL ONLY, not a seriousness determination.
+    is_noise:
+      type: boolean
+      description: True if the text contains no pharmacovigilance-relevant content at all.
+    rationale:
+      type: string
+      description: One or two sentences explaining your reading of the source.
+  required:
+    - identifiable_patient
+    - identifiable_reporter
+    - suspect_product
+    - adverse_event
+    - product_names
+    - event_terms
+    - content_type
+    - patient_count
+    - seriousness_signal
+    - is_noise
+    - rationale

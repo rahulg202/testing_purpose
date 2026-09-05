@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.0",
+  "case_id": "01J5M7KXHG0000000000000001",
+  "tenant_id": "acme_pharma",
+  "case_number": "ATH-ACME-000001",
+  "version": 1,
+  "version_type": "initial",
+  "lifecycle_state": "assessed",
+  "lock_state": "open",
+  "report_type": {
+    "value": "spontaneous",
+    "produced_by": "ai",
+    "model_id": "anthropic.claude-sonnet-4-20250514",
+    "prompt_version": "triage_classification_v1.0",
+    "confidence": 0.98,
+    "evidence": [
+      {
+        "source_record_id": "src_01J5M7KX000001",
+        "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+        "locator": {"char_start": 0, "char_end": 45},
+        "quote": "I am writing to report a side effect I experienced"
+      }
+    ],
+    "first_set_at": "2026-08-20T10:15:00Z",
+    "last_changed_at": "2026-08-20T10:15:00Z",
+    "review_state": "accepted"
+  },
+  "first_awareness_date": {
+    "value": "2026-08-20",
+    "produced_by": "rule",
+    "rule_id": "day0_email_receipt",
+    "rule_set_version": "1.0.0",
+    "evidence": [],
+    "first_set_at": "2026-08-20T10:14:22Z",
+    "last_changed_at": "2026-08-20T10:14:22Z",
+    "review_state": "accepted"
+  },
+  "most_recent_information_date": {
+    "value": "2026-08-20",
+    "produced_by": "rule",
+    "rule_id": "most_recent_info_date",
+    "rule_set_version": "1.0.0",
+    "evidence": [],
+    "first_set_at": "2026-08-20T10:14:22Z",
+    "last_changed_at": "2026-08-20T10:14:22Z",
+    "review_state": "accepted"
+  },
+  "source_records": ["src_01J5M7KX000001"],
+  "reporters": [
+    {
+      "value": {
+        "reporter_id": "rpt_001",
+        "qualification": "consumer",
+        "country": "GB",
+        "is_primary": true
+      },
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_reporter_v1.0",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000001",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+          "locator": {"char_start": 180, "char_end": 220},
+          "quote": "My name is Jane Smith, I live in London"
+        }
+      ],
+      "first_set_at": "2026-08-20T10:15:30Z",
+      "last_changed_at": "2026-08-20T10:15:30Z",
+      "review_state": "accepted"
+    }
+  ],
+  "patient": {
+    "patient_pii_token": "pat_tok_abc123",
+    "age_at_onset": {
+      "value": {"value": 54, "unit": "year"},
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_patient_v1.0",
+      "confidence": 0.97,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000001",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+          "locator": {"char_start": 95, "char_end": 115},
+          "quote": "I am a 54-year-old woman"
+        }
+      ],
+      "first_set_at": "2026-08-20T10:15:30Z",
+      "last_changed_at": "2026-08-20T10:15:30Z",
+      "review_state": "accepted"
+    },
+    "sex": {
+      "value": "female",
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_patient_v1.0",
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000001",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+          "locator": {"char_start": 100, "char_end": 115},
+          "quote": "54-year-old woman"
+        }
+      ],
+      "first_set_at": "2026-08-20T10:15:30Z",
+      "last_changed_at": "2026-08-20T10:15:30Z",
+      "review_state": "accepted"
+    },
+    "weight_kg": {
+      "value": 68.0,
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_patient_v1.0",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000001",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+          "locator": {"char_start": 250, "char_end": 270},
+          "quote": "I weigh about 68 kg"
+        }
+      ],
+      "first_set_at": "2026-08-20T10:15:30Z",
+      "last_changed_at": "2026-08-20T10:15:30Z",
+      "review_state": "proposed"
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "drg_001",
+      "characterisation": {
+        "value": "suspect",
+        "produced_by": "ai",
+        "confidence": 0.96,
+        "evidence": [],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "accepted"
+      },
+      "product_name_verbatim": {
+        "value": "Atherex 50mg tablets",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "extraction_drug_v1.0",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000001",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+            "locator": {"char_start": 130, "char_end": 165},
+            "quote": "I have been taking Atherex 50mg tablets"
+          }
+        ],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "accepted"
+      },
+      "dose": {
+        "value": {"amount": 50.0, "unit": "mg", "frequency": "once daily"},
+        "produced_by": "ai",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000001",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+            "locator": {"char_start": 170, "char_end": 200},
+            "quote": "one tablet every morning"
+          }
+        ],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "accepted"
+      },
+      "therapy_start": {
+        "value": {"year": 2026, "month": 6, "day": 15},
+        "produced_by": "ai",
+        "confidence": 0.91,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000001",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+            "locator": {"char_start": 205, "char_end": 240},
+            "quote": "started it in mid-June this year"
+          }
+        ],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "proposed"
+      },
+      "action_taken": {
+        "value": "dose_not_changed",
+        "produced_by": "ai",
+        "confidence": 0.88,
+        "evidence": [],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "proposed"
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "reaction_id": "rxn_001",
+      "verbatim": {
+        "value": "my hands go numb at night",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "extraction_reaction_v1.0",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000001",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+            "locator": {"char_start": 280, "char_end": 320},
+            "quote": "my hands go numb at night and it wakes me up"
+          }
+        ],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "accepted"
+      },
+      "coded_llt": {
+        "value": {"code": "10029332", "term": "Numbness of hands", "dictionary": "MedDRA", "dictionary_version": "27.1"},
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "coding_meddra_v1.0",
+        "confidence": 0.93,
+        "evidence": [],
+        "first_set_at": "2026-08-20T10:16:00Z",
+        "last_changed_at": "2026-08-20T10:16:00Z",
+        "review_state": "proposed"
+      },
+      "coded_pt": {
+        "value": {"code": "10020578", "term": "Hypoaesthesia", "dictionary": "MedDRA", "dictionary_version": "27.1"},
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "coding_meddra_v1.0",
+        "confidence": 0.89,
+        "evidence": [],
+        "dictionary": "MedDRA",
+        "dictionary_version": "27.1",
+        "first_set_at": "2026-08-20T10:16:00Z",
+        "last_changed_at": "2026-08-20T10:16:00Z",
+        "review_state": "proposed"
+      },
+      "derived_hlt": {"code": "10020579", "term": "Hypoaesthesias", "dictionary": "MedDRA"},
+      "derived_soc": {"code": "10029205", "term": "Nervous system disorders", "dictionary": "MedDRA"},
+      "onset_date": {
+        "value": {"year": 2026, "month": 7},
+        "produced_by": "ai",
+        "confidence": 0.85,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000001",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+            "locator": {"char_start": 330, "char_end": 360},
+            "quote": "it started about a month after"
+          }
+        ],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "proposed"
+      },
+      "outcome": {
+        "value": "not_recovered",
+        "produced_by": "ai",
+        "confidence": 0.91,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000001",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000001/raw.json",
+            "locator": {"char_start": 380, "char_end": 410},
+            "quote": "still happening every night"
+          }
+        ],
+        "first_set_at": "2026-08-20T10:15:30Z",
+        "last_changed_at": "2026-08-20T10:15:30Z",
+        "review_state": "accepted"
+      },
+      "serious_criteria_facts": {
+        "resulted_in_death": {"value": false, "produced_by": "ai", "confidence": 0.99, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "accepted"},
+        "life_threatening": {"value": false, "produced_by": "ai", "confidence": 0.98, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "accepted"},
+        "required_hospitalisation": {"value": false, "produced_by": "ai", "confidence": 0.97, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "accepted"},
+        "prolonged_hospitalisation": {"value": false, "produced_by": "ai", "confidence": 0.99, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "accepted"},
+        "persistent_disability": {"value": false, "produced_by": "ai", "confidence": 0.90, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "proposed"},
+        "congenital_anomaly": {"value": false, "produced_by": "ai", "confidence": 0.99, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "accepted"},
+        "other_medically_important": {"value": false, "produced_by": "ai", "confidence": 0.85, "evidence": [], "first_set_at": "2026-08-20T10:15:30Z", "last_changed_at": "2026-08-20T10:15:30Z", "review_state": "proposed"}
+      },
+      "is_serious": {
+        "value": false,
+        "produced_by": "rule",
+        "rule_id": "ser_003",
+        "rule_set_version": "4.2.0",
+        "evidence": [],
+        "first_set_at": "2026-08-20T10:16:30Z",
+        "last_changed_at": "2026-08-20T10:16:30Z",
+        "review_state": "accepted"
+      },
+      "seriousness_rule_trace": {
+        "rule_id": "ser_003",
+        "rule_set_version": "4.2.0",
+        "inputs": {
+          "resulted_in_death": false,
+          "life_threatening": false,
+          "required_hospitalisation": false,
+          "prolonged_hospitalisation": false,
+          "persistent_disability": false,
+          "congenital_anomaly": false,
+          "other_medically_important": false,
+          "ime_list_match": null
+        },
+        "input_provenance": {},
+        "fired_rules": ["ser_003_no_criteria_met"],
+        "explanation": "No ICH seriousness criteria met. Case is non-serious.",
+        "outcome": "non_serious"
+      }
+    }
+  ],
+  "narrative": {
+    "text": {
+      "value": "This is a spontaneous report from a 54-year-old female consumer in the United Kingdom. The patient reported numbness in both hands occurring at night (onset approximately July 2026), approximately one month after starting Atherex (atherexol) 50mg tablets once daily (started 15 June 2026) for an unspecified indication. The event was ongoing at the time of report. No action was taken with the suspect drug. The event was assessed as non-serious.",
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "narrative_generation_v1.0",
+      "confidence": 0.92,
+      "evidence": [],
+      "first_set_at": "2026-08-20T10:17:00Z",
+      "last_changed_at": "2026-08-20T10:17:00Z",
+      "review_state": "proposed"
+    },
+    "coverage_check_passed": true,
+    "coverage_gaps": []
+  },
+  "assessment": {
+    "case_seriousness": {
+      "value": false,
+      "produced_by": "rule",
+      "rule_id": "case_ser_001",
+      "rule_set_version": "4.2.0",
+      "evidence": [],
+      "first_set_at": "2026-08-20T10:16:30Z",
+      "last_changed_at": "2026-08-20T10:16:30Z",
+      "review_state": "accepted"
+    },
+    "is_valid_icsr": {
+      "value": true,
+      "produced_by": "rule",
+      "rule_id": "val_001",
+      "rule_set_version": "1.0.0",
+      "evidence": [],
+      "first_set_at": "2026-08-20T10:15:00Z",
+      "last_changed_at": "2026-08-20T10:15:00Z",
+      "review_state": "accepted"
+    }
+  },
+  "completeness": {
+    "overall_score": 0.88,
+    "missing_mandatory": [],
+    "missing_recommended": ["patient.height_cm", "drugs[0].indications"]
+  },
+  "missing_data": [
+    {
+      "field_path": "drugs[0].indications",
+      "description": "Indication for use of Atherex not provided by reporter",
+      "is_mandatory": false,
+      "follow_up_question": "For what condition was Atherex prescribed?"
+    }
+  ],
+  "signatures": [],
+  "created_at": "2026-08-20T10:14:22Z",
+  "created_by": "pipeline_intake",
+  "approved_at": null,
+  "approved_by": null
+}

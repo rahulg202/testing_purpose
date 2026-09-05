@@ -1,0 +1,340 @@
+{
+  "schema_version": "1.0",
+  "case_id": "01J5M7KXHG0000000000000003",
+  "tenant_id": "acme_pharma",
+  "case_number": "ATH-ACME-000003",
+  "version": 1,
+  "version_type": "initial",
+  "lifecycle_state": "review_required",
+  "lock_state": "open",
+  "report_type": {
+    "value": "spontaneous",
+    "produced_by": "ai",
+    "model_id": "anthropic.claude-sonnet-4-20250514",
+    "prompt_version": "triage_classification_v1.0",
+    "confidence": 0.92,
+    "evidence": [],
+    "first_set_at": "2026-08-20T16:00:00Z",
+    "last_changed_at": "2026-08-20T16:00:00Z",
+    "review_state": "accepted"
+  },
+  "first_awareness_date": {
+    "value": "2026-08-20",
+    "produced_by": "rule",
+    "rule_id": "day0_email_receipt",
+    "rule_set_version": "1.0.0",
+    "evidence": [],
+    "first_set_at": "2026-08-20T15:58:00Z",
+    "last_changed_at": "2026-08-20T15:58:00Z",
+    "review_state": "accepted"
+  },
+  "source_records": ["src_01J5M7KX000003"],
+  "reporters": [
+    {
+      "value": {
+        "reporter_id": "rpt_003",
+        "qualification": "physician",
+        "country": "DE",
+        "is_primary": true
+      },
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_reporter_v1.0",
+      "confidence": 0.97,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000003",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+          "locator": {"char_start": 0, "char_end": 35},
+          "quote": "Dr. Müller, Charité Universitätsmedizin"
+        }
+      ],
+      "first_set_at": "2026-08-20T16:00:30Z",
+      "last_changed_at": "2026-08-20T16:00:30Z",
+      "review_state": "accepted"
+    }
+  ],
+  "patient": {
+    "patient_pii_token": "pat_tok_ghi789",
+    "age_at_onset": {
+      "value": {"value": 72, "unit": "year"},
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_patient_v1.0",
+      "confidence": 0.96,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000003",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+          "locator": {"char_start": 50, "char_end": 75},
+          "quote": "72-jährige Patientin"
+        }
+      ],
+      "first_set_at": "2026-08-20T16:00:30Z",
+      "last_changed_at": "2026-08-20T16:00:30Z",
+      "review_state": "accepted"
+    },
+    "sex": {
+      "value": "female",
+      "produced_by": "ai",
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000003",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+          "locator": {"char_start": 63, "char_end": 75},
+          "quote": "Patientin"
+        }
+      ],
+      "first_set_at": "2026-08-20T16:00:30Z",
+      "last_changed_at": "2026-08-20T16:00:30Z",
+      "review_state": "accepted"
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "drg_003",
+      "characterisation": {
+        "value": "suspect",
+        "produced_by": "ai",
+        "confidence": 0.95,
+        "evidence": [],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "product_name_verbatim": {
+        "value": "Atherex 100mg",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "extraction_drug_v1.0",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 100, "char_end": 125},
+            "quote": "Atherex 100mg einmal täglich"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "dose": {
+        "value": {"amount": 100.0, "unit": "mg", "frequency": "once daily"},
+        "produced_by": "ai",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 108, "char_end": 130},
+            "quote": "100mg einmal täglich"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "therapy_start": {
+        "value": {"year": 2026, "month": 3, "day": 10},
+        "produced_by": "ai",
+        "confidence": 0.93,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 135, "char_end": 155},
+            "quote": "seit dem 10. März 2026"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "action_taken": {
+        "value": "withdrawn",
+        "produced_by": "ai",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 300, "char_end": 330},
+            "quote": "Das Medikament wurde sofort abgesetzt"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "reaction_id": "rxn_003",
+      "verbatim": {
+        "value": "schwere Leberschädigung mit Ikterus und erhöhten Transaminasen",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "extraction_reaction_v1.0",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 180, "char_end": 245},
+            "quote": "schwere Leberschädigung mit Ikterus und erhöhten Transaminasen (ALT 1200 U/L, AST 980 U/L)"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "verbatim_translated": {
+        "value": "severe liver damage with jaundice and elevated transaminases",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "translation_v1.0",
+        "confidence": 0.98,
+        "evidence": [],
+        "first_set_at": "2026-08-20T16:00:45Z",
+        "last_changed_at": "2026-08-20T16:00:45Z",
+        "review_state": "accepted"
+      },
+      "coded_pt": {
+        "value": {"code": "10019663", "term": "Hepatotoxicity", "dictionary": "MedDRA", "dictionary_version": "27.1"},
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "coding_meddra_v1.0",
+        "confidence": 0.82,
+        "evidence": [],
+        "first_set_at": "2026-08-20T16:01:00Z",
+        "last_changed_at": "2026-08-20T16:01:00Z",
+        "review_state": "proposed"
+      },
+      "onset_date": {
+        "value": {"year": 2026, "month": 8, "day": 5},
+        "produced_by": "ai",
+        "confidence": 0.90,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 160, "char_end": 178},
+            "quote": "Am 5. August bemerkt"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "outcome": {
+        "value": "recovering",
+        "produced_by": "ai",
+        "confidence": 0.88,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000003",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+            "locator": {"char_start": 340, "char_end": 375},
+            "quote": "Die Werte sind langsam rückläufig"
+          }
+        ],
+        "first_set_at": "2026-08-20T16:00:30Z",
+        "last_changed_at": "2026-08-20T16:00:30Z",
+        "review_state": "accepted"
+      },
+      "serious_criteria_facts": {
+        "resulted_in_death": {"value": false, "produced_by": "ai", "confidence": 0.99, "evidence": [], "first_set_at": "2026-08-20T16:00:30Z", "last_changed_at": "2026-08-20T16:00:30Z", "review_state": "accepted"},
+        "life_threatening": {"value": null, "produced_by": "ai", "confidence": 0.40, "evidence": [], "first_set_at": "2026-08-20T16:00:30Z", "last_changed_at": "2026-08-20T16:00:30Z", "review_state": "escalated"},
+        "required_hospitalisation": {
+          "value": true,
+          "produced_by": "ai",
+          "confidence": 0.97,
+          "evidence": [
+            {
+              "source_record_id": "src_01J5M7KX000003",
+              "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000003/raw.json",
+              "locator": {"char_start": 250, "char_end": 290},
+              "quote": "Die Patientin wurde stationär aufgenommen"
+            }
+          ],
+          "first_set_at": "2026-08-20T16:00:30Z",
+          "last_changed_at": "2026-08-20T16:00:30Z",
+          "review_state": "accepted"
+        },
+        "other_medically_important": {"value": true, "produced_by": "ai", "confidence": 0.92, "evidence": [], "first_set_at": "2026-08-20T16:00:30Z", "last_changed_at": "2026-08-20T16:00:30Z", "review_state": "proposed"}
+      },
+      "is_serious": {
+        "value": true,
+        "produced_by": "rule",
+        "rule_id": "ser_003",
+        "rule_set_version": "4.2.0",
+        "evidence": [],
+        "first_set_at": "2026-08-20T16:01:30Z",
+        "last_changed_at": "2026-08-20T16:01:30Z",
+        "review_state": "accepted"
+      },
+      "seriousness_rule_trace": {
+        "rule_id": "ser_003",
+        "rule_set_version": "4.2.0",
+        "inputs": {
+          "resulted_in_death": false,
+          "life_threatening": null,
+          "required_hospitalisation": true,
+          "other_medically_important": true
+        },
+        "input_provenance": {
+          "required_hospitalisation": "ai:extraction_reaction_v1.0:0.97",
+          "life_threatening": "ESCALATED — could not determine"
+        },
+        "fired_rules": ["ser_003_hospitalisation", "ser_003_other_medically_important"],
+        "explanation": "SERIOUS — hospitalisation. Rule ser_003 v4.2.0. Basis: 'Die Patientin wurde stationär aufgenommen'. Life-threatening status could not be determined — we do not guess. Confirm or request follow-up.",
+        "outcome": "serious"
+      }
+    }
+  ],
+  "narrative": null,
+  "assessment": {
+    "case_seriousness": {
+      "value": true,
+      "produced_by": "rule",
+      "rule_id": "case_ser_001",
+      "rule_set_version": "4.2.0",
+      "evidence": [],
+      "first_set_at": "2026-08-20T16:01:30Z",
+      "last_changed_at": "2026-08-20T16:01:30Z",
+      "review_state": "accepted"
+    },
+    "is_valid_icsr": {
+      "value": true,
+      "produced_by": "rule",
+      "rule_id": "val_001",
+      "rule_set_version": "1.0.0",
+      "evidence": [],
+      "first_set_at": "2026-08-20T16:00:00Z",
+      "last_changed_at": "2026-08-20T16:00:00Z",
+      "review_state": "accepted"
+    }
+  },
+  "completeness": {
+    "overall_score": 0.78,
+    "missing_mandatory": [],
+    "missing_recommended": ["drugs[0].indications"]
+  },
+  "missing_data": [
+    {
+      "field_path": "reactions[0].serious_criteria_facts.life_threatening",
+      "description": "Life-threatening status could not be determined from the source. ALT 1200 U/L suggests severe injury but the physician did not characterise it as life-threatening.",
+      "is_mandatory": true,
+      "follow_up_question": "Was the hepatotoxicity considered life-threatening by the treating physician?"
+    }
+  ],
+  "signatures": [],
+  "created_at": "2026-08-20T15:58:00Z",
+  "created_by": "pipeline_intake",
+  "approved_at": null,
+  "approved_by": null
+}

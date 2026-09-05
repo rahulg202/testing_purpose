@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Node / Frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# CDK
+infrastructure/cdk.out/
+infrastructure/node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Tooling caches
+.ruff_cache/
+
+# Evidence vault — contains ingested source content including reporter names,
+# emails and patient details. Never commit it.
+evidence_vault/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AWS
+.aws-sam/
+samconfig.toml
+
+# Alembic
+*.db

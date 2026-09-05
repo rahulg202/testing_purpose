@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "case_id": "01J5M7KXHG0000000000000002",
+  "tenant_id": "acme_pharma",
+  "case_number": "ATH-ACME-000002",
+  "version": 1,
+  "version_type": "initial",
+  "lifecycle_state": "review_required",
+  "lock_state": "open",
+  "report_type": {
+    "value": "spontaneous",
+    "produced_by": "ai",
+    "model_id": "anthropic.claude-sonnet-4-20250514",
+    "prompt_version": "triage_classification_v1.0",
+    "confidence": 0.88,
+    "evidence": [
+      {
+        "source_record_id": "src_01J5M7KX000002",
+        "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000002/raw.json",
+        "locator": {"char_start": 0, "char_end": 30},
+        "quote": "My mother had a bad reaction"
+      }
+    ],
+    "first_set_at": "2026-08-20T14:30:00Z",
+    "last_changed_at": "2026-08-20T14:30:00Z",
+    "review_state": "proposed"
+  },
+  "first_awareness_date": {
+    "value": "2026-08-20",
+    "produced_by": "rule",
+    "rule_id": "day0_email_receipt",
+    "rule_set_version": "1.0.0",
+    "evidence": [],
+    "first_set_at": "2026-08-20T14:28:00Z",
+    "last_changed_at": "2026-08-20T14:28:00Z",
+    "review_state": "accepted"
+  },
+  "source_records": ["src_01J5M7KX000002"],
+  "reporters": [
+    {
+      "value": {
+        "reporter_id": "rpt_002",
+        "qualification": "consumer",
+        "country": null,
+        "is_primary": true
+      },
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_reporter_v1.0",
+      "confidence": 0.72,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000002",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000002/raw.json",
+          "locator": {"char_start": 0, "char_end": 28},
+          "quote": "My mother had a bad reaction"
+        }
+      ],
+      "first_set_at": "2026-08-20T14:30:30Z",
+      "last_changed_at": "2026-08-20T14:30:30Z",
+      "review_state": "proposed"
+    }
+  ],
+  "patient": {
+    "patient_pii_token": "pat_tok_def456",
+    "age_at_onset": null,
+    "sex": {
+      "value": "female",
+      "produced_by": "ai",
+      "model_id": "anthropic.claude-sonnet-4-20250514",
+      "prompt_version": "extraction_patient_v1.0",
+      "confidence": 0.80,
+      "evidence": [
+        {
+          "source_record_id": "src_01J5M7KX000002",
+          "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000002/raw.json",
+          "locator": {"char_start": 3, "char_end": 9},
+          "quote": "mother"
+        }
+      ],
+      "first_set_at": "2026-08-20T14:30:30Z",
+      "last_changed_at": "2026-08-20T14:30:30Z",
+      "review_state": "proposed"
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "drg_002",
+      "characterisation": {
+        "value": "suspect",
+        "produced_by": "ai",
+        "confidence": 0.90,
+        "evidence": [],
+        "first_set_at": "2026-08-20T14:30:30Z",
+        "last_changed_at": "2026-08-20T14:30:30Z",
+        "review_state": "proposed"
+      },
+      "product_name_verbatim": {
+        "value": "Atherex",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "extraction_drug_v1.0",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000002",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000002/raw.json",
+            "locator": {"char_start": 55, "char_end": 75},
+            "quote": "she was taking Atherex"
+          }
+        ],
+        "first_set_at": "2026-08-20T14:30:30Z",
+        "last_changed_at": "2026-08-20T14:30:30Z",
+        "review_state": "accepted"
+      },
+      "dose": null,
+      "therapy_start": null,
+      "action_taken": null
+    }
+  ],
+  "reactions": [
+    {
+      "reaction_id": "rxn_002",
+      "verbatim": {
+        "value": "was admitted to hospital with swollen face and difficulty breathing",
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "extraction_reaction_v1.0",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "source_record_id": "src_01J5M7KX000002",
+            "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000002/raw.json",
+            "locator": {"char_start": 80, "char_end": 150},
+            "quote": "was admitted to hospital with swollen face and difficulty breathing"
+          }
+        ],
+        "first_set_at": "2026-08-20T14:30:30Z",
+        "last_changed_at": "2026-08-20T14:30:30Z",
+        "review_state": "accepted"
+      },
+      "coded_pt": {
+        "value": {"code": "10002198", "term": "Anaphylactic reaction", "dictionary": "MedDRA", "dictionary_version": "27.1"},
+        "produced_by": "ai",
+        "model_id": "anthropic.claude-sonnet-4-20250514",
+        "prompt_version": "coding_meddra_v1.0",
+        "confidence": 0.72,
+        "evidence": [],
+        "first_set_at": "2026-08-20T14:31:00Z",
+        "last_changed_at": "2026-08-20T14:31:00Z",
+        "review_state": "proposed"
+      },
+      "outcome": {
+        "value": "unknown",
+        "produced_by": "ai",
+        "confidence": 0.60,
+        "evidence": [],
+        "first_set_at": "2026-08-20T14:30:30Z",
+        "last_changed_at": "2026-08-20T14:30:30Z",
+        "review_state": "escalated"
+      },
+      "serious_criteria_facts": {
+        "resulted_in_death": {"value": null, "produced_by": "ai", "confidence": 0.50, "evidence": [], "first_set_at": "2026-08-20T14:30:30Z", "last_changed_at": "2026-08-20T14:30:30Z", "review_state": "escalated"},
+        "life_threatening": {"value": null, "produced_by": "ai", "confidence": 0.45, "evidence": [], "first_set_at": "2026-08-20T14:30:30Z", "last_changed_at": "2026-08-20T14:30:30Z", "review_state": "escalated"},
+        "required_hospitalisation": {
+          "value": true,
+          "produced_by": "ai",
+          "confidence": 0.96,
+          "evidence": [
+            {
+              "source_record_id": "src_01J5M7KX000002",
+              "evidence_ref": "acme_pharma/email/2026/08/20/src_01J5M7KX000002/raw.json",
+              "locator": {"char_start": 80, "char_end": 110},
+              "quote": "was admitted to hospital"
+            }
+          ],
+          "first_set_at": "2026-08-20T14:30:30Z",
+          "last_changed_at": "2026-08-20T14:30:30Z",
+          "review_state": "proposed"
+        }
+      },
+      "is_serious": {
+        "value": true,
+        "produced_by": "rule",
+        "rule_id": "ser_003",
+        "rule_set_version": "4.2.0",
+        "evidence": [],
+        "first_set_at": "2026-08-20T14:31:30Z",
+        "last_changed_at": "2026-08-20T14:31:30Z",
+        "review_state": "proposed"
+      },
+      "seriousness_rule_trace": {
+        "rule_id": "ser_003",
+        "rule_set_version": "4.2.0",
+        "inputs": {
+          "required_hospitalisation": true
+        },
+        "input_provenance": {
+          "required_hospitalisation": "ai:extraction_reaction_v1.0:0.96"
+        },
+        "fired_rules": ["ser_003_hospitalisation"],
+        "explanation": "SERIOUS — hospitalisation. Rule ser_003 v4.2.0. Basis: 'was admitted to hospital'.",
+        "outcome": "serious"
+      }
+    }
+  ],
+  "narrative": null,
+  "assessment": {
+    "case_seriousness": {
+      "value": true,
+      "produced_by": "rule",
+      "rule_id": "case_ser_001",
+      "rule_set_version": "4.2.0",
+      "evidence": [],
+      "first_set_at": "2026-08-20T14:31:30Z",
+      "last_changed_at": "2026-08-20T14:31:30Z",
+      "review_state": "proposed"
+    },
+    "is_valid_icsr": {
+      "value": true,
+      "produced_by": "rule",
+      "rule_id": "val_001",
+      "rule_set_version": "1.0.0",
+      "evidence": [],
+      "first_set_at": "2026-08-20T14:30:00Z",
+      "last_changed_at": "2026-08-20T14:30:00Z",
+      "review_state": "accepted"
+    }
+  },
+  "completeness": {
+    "overall_score": 0.52,
+    "missing_mandatory": [],
+    "missing_recommended": [
+      "patient.age_at_onset",
+      "drugs[0].dose",
+      "drugs[0].therapy_start",
+      "reactions[0].onset_date",
+      "reporters[0].country"
+    ]
+  },
+  "missing_data": [
+    {
+      "field_path": "patient.age_at_onset",
+      "description": "Patient age not provided",
+      "is_mandatory": false,
+      "follow_up_question": "How old is the patient?"
+    },
+    {
+      "field_path": "reactions[0].serious_criteria_facts.resulted_in_death",
+      "description": "Outcome after hospitalisation unknown — cannot determine if life-threatening or fatal",
+      "is_mandatory": true,
+      "follow_up_question": "What was the outcome of the hospitalisation? Did the patient recover?"
+    },
+    {
+      "field_path": "drugs[0].dose",
+      "description": "Dose of Atherex not provided",
+      "is_mandatory": false,
+      "follow_up_question": "What dose and frequency of Atherex was the patient taking?"
+    }
+  ],
+  "signatures": [],
+  "created_at": "2026-08-20T14:28:00Z",
+  "created_by": "pipeline_intake",
+  "approved_at": null,
+  "approved_by": null
+}

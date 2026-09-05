@@ -1,0 +1,16 @@
+[project]
+name = "atheria-contracts"
+version = "0.1.0"
+description = "Atheria shared contracts — Pydantic models and JSON Schema definitions"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7.0",
+    "python-ulid>=2.7.0",
+]
+
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["atheria_contracts*"]

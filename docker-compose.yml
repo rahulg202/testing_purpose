@@ -1,0 +1,116 @@
+# Atheria — self-hosted stack using only open-source components.
+#
+# Nothing here is a managed cloud service: PostgreSQL replaces RDS, MinIO
+# replaces S3. The only external dependency is Amazon Bedrock for model
+# inference, reached over the API with no infrastructure provisioned.
+#
+#   docker compose up -d
+#   docker compose run --rm migrate
+#
+# The API then runs against Postgres + MinIO instead of the local SQLite +
+# filesystem defaults.
+
+name: atheria
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: atheria-db
+    environment:
+      POSTGRES_USER: atheria
+      POSTGRES_PASSWORD: atheria
+      POSTGRES_DB: atheria
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U atheria -d atheria"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # S3-compatible evidence vault. Versioning is enabled on the bucket so
+  # stored evidence is immutable in practice as well as by convention.
+  minio:
+    image: minio/minio:latest
+    container_name: atheria-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: atheria
+      MINIO_ROOT_PASSWORD: atheria123
+    ports:
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # web console
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # One-shot: create the evidence bucket and turn on versioning.
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set local http://minio:9000 atheria atheria123 &&
+      mc mb --ignore-existing local/atheria-evidence &&
+      mc version enable local/atheria-evidence &&
+      echo 'evidence bucket ready'
+      "
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: atheria-api
+    depends_on:
+      db:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    environment:
+      ATHERIA_ENVIRONMENT: development
+      ATHERIA_DEBUG: "true"
+      ATHERIA_LOG_FORMAT: console
+      ATHERIA_DATABASE_URL: postgresql+asyncpg://atheria:atheria@db:5432/atheria
+      # Evidence vault -> MinIO
+      ATHERIA_EVIDENCE_BACKEND: s3
+      ATHERIA_EVIDENCE_BUCKET: atheria-evidence
+      ATHERIA_EVIDENCE_ENDPOINT_URL: http://minio:9000
+      ATHERIA_EVIDENCE_ACCESS_KEY: atheria
+      ATHERIA_EVIDENCE_SECRET_KEY: atheria123
+      # Model inference
+      ATHERIA_LLM_PROVIDER: ${ATHERIA_LLM_PROVIDER:-bedrock}
+      ATHERIA_AWS_REGION: ${ATHERIA_AWS_REGION:-ap-south-1}
+      ATHERIA_BEDROCK_MODEL_ID: ${ATHERIA_BEDROCK_MODEL_ID:-apac.amazon.nova-lite-v1:0}
+      ATHERIA_GEMINI_API_KEY: ${ATHERIA_GEMINI_API_KEY:-}
+      ATHERIA_CORS_ORIGINS: '["http://localhost:5173"]'
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+    ports:
+      - "8000:8000"
+
+  # Run migrations once, then exit.
+  migrate:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ATHERIA_DATABASE_URL: postgresql+asyncpg://atheria:atheria@db:5432/atheria
+    working_dir: /app/backend
+    entrypoint: ["alembic", "upgrade", "head"]
+    profiles: ["tools"]
+
+volumes:
+  db_data:
+  minio_data:
