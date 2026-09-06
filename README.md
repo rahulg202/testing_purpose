@@ -12,6 +12,10 @@ a qualified human approves. Atheria owns the reasoning; the customer's safety da
 > It is a complete engineering handover: architecture, tech stack, full database
 > schema, API reference, deployment guide, known gaps, and the reasoning behind
 > every significant decision.
+>
+> For the one-page system boundary view — every external entity, data flow and
+> store, including the separately-deployed voice agent — see
+> **[docs/CONTEXT_DIAGRAM.md](docs/CONTEXT_DIAGRAM.md)**.
 
 ---
 

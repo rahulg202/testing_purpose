@@ -11,6 +11,8 @@ deploy it, the database schema, and the known gaps.
 
 ## Table of contents
 
+0. [Level 0 context diagram](CONTEXT_DIAGRAM.md) — system boundary, external
+   entities and data flows, including the separately-deployed voice agent
 1. [What this system does](#1-what-this-system-does)
 2. [Domain primer for engineers](#2-domain-primer-for-engineers)
 3. [Architecture](#3-architecture)

@@ -1,5 +1,10 @@
 # Atheria Architecture
 
+> For the Level 0 / context view — the system as a single process with its
+> external entities, data flows and stores — see
+> **[CONTEXT_DIAGRAM.md](CONTEXT_DIAGRAM.md)**. This file covers the internal
+> layering.
+
 ## System Overview
 
 ```
