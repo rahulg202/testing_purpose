@@ -1,287 +1,336 @@
 # Atheria — Demo Video Script
 
-**Runtime:** ~5:45 (slides ~1:40, live demo ~4:05)
-**Audience:** Non-technical. PV leadership, quality, compliance, business stakeholders.
-**Spoken words:** 801 measured — 252 across the slides, 523 in the demo. That's
-5:20 of narration at 150 wpm, ~5:45 once you add the live AI pauses and slide
-transitions.
+**Audience:** Non-technical — PV leadership, quality, compliance, business stakeholders
 
-> Adding the three vision slides pushed this past the original 3–5 minute target.
-> If you need to be strictly under 5:00, use the cut table below — dropping
-> Slide 1 and Literature Monitoring gets you to roughly 4:35 without weakening
-> the argument.
+Read this aloud as continuous narration. Screen directions sit in *italics* between
+paragraphs; everything else is spoken as written.
 
-## How to use this
+### Two lengths in one script
 
-Left column is what the viewer sees. Right column is what you say, word for word.
-Timings are cumulative. `[Brackets]` are stage directions, not spoken.
+Both counts below are measured from this file, not estimated.
 
-**Golden rule for this audience:** never say model, LLM, prompt, API or schema.
-Say *"the AI reads it"* and *"the rulebook decides"*. Technical credibility comes
-from what's on screen, not from vocabulary.
+| Read | Words | Narration | With pauses |
+|---|---|---|---|
+| **Full** | 984 | 6:33 | **~7:00** |
+| **Short** — skip everything marked `[SHORT: cut]` | 731 | 4:52 | **~5:15** |
 
-**Structure.** Part 1 is three slides establishing the vision — a complete
-pharmacovigilance suite. Part 2 is the live product. The join between them is the
-most important moment in the video: ICSR identification is the **first**
-capability of that suite, not the whole ambition.
+The short read drops the lifecycle slide, the literature section, and three
+paragraphs. The story still runs start to finish: the obligation, the vision, both
+reporting routes, the evidenced decision, and the escalation.
 
-### Need it shorter?
+Prose runs longer than clipped bullet points. That's the cost of it sounding like a
+person talking rather than a list being read, which is usually worth paying with
+this audience.
 
-| Target | Cut | Why it still works |
-|---|---|---|
-| **~5:20** | Drop Slide 1; open on Slide 2 | The scale slide establishes the problem on its own |
-| **~4:35** | Drop Slide 1 **and** Literature Monitoring | You still show one channel end to end, plus both decision outcomes |
-| **~4:00** | Also drop the voice agent section | Loses a differentiator — only do this if forced |
-| **~90 sec** | See the cut-down at the end | Keeps the evidence click and the escalation line |
+### One rule throughout
 
-Do **not** cut the escalated case to save time. It is the strongest 40 seconds
-in the video.
+Never say model, LLM, prompt, API or schema. Say *the AI reads it* and *the rulebook
+decides*. The credibility comes from what's on screen, not the vocabulary.
+
+Whatever you cut, keep the escalated case at 3:52. It's the most persuasive forty
+seconds in the video.
 
 ---
 
-# PART 1 — THE VISION (slides)
+## Part one — the vision
 
-## 0:00 – 0:22 · Slide 1: where this sits
+### 0:00 · Where this sits · **`[SHORT: cut this whole section — open on the channels slide instead]`**
 
-`[Slide: "Post-Market Monitoring — Pharmacovigilance" lifecycle wheel, Post-Market
-Monitoring quadrant highlighted]`
+*Open on the lifecycle wheel, all four quadrants visible.*
 
-| Screen | Narration |
-|---|---|
-| Full slide | Every medicine follows the same journey. Discovered and tested. Manufactured at scale. Approved, and it reaches patients. |
-| Quadrants highlight in turn | Three of those four stages end. |
-| **Post-Market Monitoring** highlights | This one never does. From the day a medicine reaches the market, we are legally obliged to track its real-world safety, continuously. That's pharmacovigilance — and it's where Atheria works. |
+Every medicine follows the same journey. Discovered and tested for years.
+Manufactured at scale. Approved, and one day it reaches a patient who needs it.
 
----
+*Let the first three quadrants highlight, then settle on Post-Market Monitoring.*
 
-## 0:22 – 0:55 · Slide 2: the scale of the obligation
+Three of those stages end. This one never does. From the day a medicine reaches the
+market, we're legally obliged to keep watching what it does to real people — not in
+a trial, out in the world, for as long as it's on the shelf. That's
+pharmacovigilance, and that's where Atheria works.
 
-`[Slide: input channels → Centralized Database → Signal Detection & Analysis →
-regulatory reports]`
+### 0:20 · What that obligation looks like
 
-| Screen | Narration |
-|---|---|
-| Left column of channels appears | Safety information arrives from everywhere. Web forms, helplines, emails, published research — increasingly social media. Seven channels, every one a different format. |
-| Flow to the centre | It all has to land in one place, structured the same way. |
-| Signal Detection & Analysis | Then we look across it for patterns — a side effect appearing more often than it should. |
-| Reports appear on the right | And it ends in regulatory reporting. PSURs, PADERs, Risk Management Plans — to deadlines set by regulators, not by us. |
-| Hold the full slide | Large, continuous, heavily regulated. Today, mostly manual. |
+*Move to the channels slide. Bring in the left-hand column.*
 
----
+The difficulty is that safety information never arrives tidily. It comes through
+web forms and helplines, by email, in published research — and increasingly on
+social media, where someone just mentions that a medicine made them unwell. Seven
+channels, every one a different shape.
 
-## 0:55 – 1:20 · Slide 3: our answer
+*Follow the flow into the centre, then bring in the reports on the right.*
 
-`[Slide: "One Solution From Start to End" — 01 Collect, 02 Review, 03 Analysis,
-04 Reporting]`
+**`[SHORT: cut this paragraph]`** All of it has to reach one place, structured the
+same way, before we can look across the whole picture for a side effect turning up
+more often than it should. And it ends in paperwork regulators demand, to deadlines
+set by someone other than us.
 
-| Screen | Narration |
-|---|---|
-| Full slide | Our answer is one platform across the whole chain, in four stages. |
-| **01 Collect** → **02 Review** | Collect, pulling information in from every channel. Review, deciding what each report actually is. |
-| **03 Analysis** → **04 Reporting** | Analysis, finding emerging safety signals. And Reporting, producing the regulatory documents on time. |
-| Bottom line of the slide | Run by AI agents throughout — **with a human in the loop for verification.** That last part isn't a footnote. It's the design principle, and you'll see it enforced in a minute. |
+A large, continuous, heavily regulated operation — and today almost all of it is
+done by hand.
 
----
+### 0:52 · What we're building
 
-## 1:20 – 1:40 · The bridge: where we are today
+*Move to the four-stage slide.*
 
-`[Hold Slide 3, or show it with stages 01–02 marked in progress]`
+So we're building one platform across the whole chain, in four stages. Collect,
+pulling information in from every channel. Review, working out what each report
+actually is. Analyse, looking for a signal starting to emerge. And report,
+producing the regulatory documents on time.
 
-| Screen | Narration |
-|---|---|
-| Highlight 01 and 02 | That's the destination. Here's today. |
-| | We built the foundation first — Collect and Review, on two channels — answering the one question everything downstream depends on. |
-| | **Is this a case we are legally required to report?** Get that wrong and every number after it is wrong. |
-| Cut to the live product | Let me show you. |
+*Point to the line along the bottom.*
 
----
+All driven by AI agents, with a human in the loop to verify. That last part isn't a
+footnote we added to sound responsible — it's the principle the whole thing is built
+around, and you'll see where it's enforced.
 
-# PART 2 — THE PRODUCT (live demo)
+### 1:16 · Where we are today
 
-## 1:40 – 1:57 · Sign in: two doors
+*Highlight stages one and two.*
 
-| Screen | Narration |
-|---|---|
-| Sign-in page, cursor over the two roles | Atheria has two front doors, because two very different people use it. |
-| Highlight **Reporter**, then **PV Expert** | A reporter, who needs to tell us something happened. And a pharmacovigilance expert, who decides what to do about it. |
-| Click **Reporter** | Let's start as the reporter. |
+That's the destination. Here's where we are. We built the foundation first —
+collect and review, on two channels — because everything after it depends on
+getting one question right. Is this report a case we're legally required to report?
+If that's wrong, every number downstream is wrong with it.
+
+*Cut to the live product.*
+
+Let me show you.
 
 ---
 
-## 1:57 – 2:28 · Reporter: the web form
+## Part two — the product
 
-| Screen | Narration |
-|---|---|
-| Reporter home: **Report an Event** and **Talk to us**. Click **Report an Event** | Two ways to reach us. First, a form: reporter, patient, medicine, what happened. |
-| Pause on the optional fields | Almost everything is optional, deliberately — a form that refuses incomplete information just loses the report. |
-| Submit the complete example | So: a physician reports a fifty-four-year-old woman, severe rash after starting her medicine, admitted overnight. Submit. |
-| Green **Valid ICSR** badge appears | Two seconds, and it has a decision: **a valid reportable case.** We'll come back to how. |
+### 1:36 · Two front doors
 
----
+*Sign-in page.*
 
-## 2:28 – 3:02 · Reporter: the voice agent
+Atheria has two front doors, because two very different people use it. The
+reporter — a doctor, a pharmacist, a patient — who needs to tell us something
+happened. And the pharmacovigilance expert, who decides what to do about it. Let's
+come in as the reporter.
 
-| Screen | Narration |
-|---|---|
-| Back to reporter home. Click **Talk to us** | But many people won't fill in a form. They'd rather just talk. |
-| Type: *"my mum has been really dizzy since her new tablets"* | So they can describe it in their own words. |
-| Agent asks a follow-up | And here it does what a form cannot. It notices what's missing, and asks. |
-| Agent asks a second follow-up | How old is she. What's the medicine. When did it start — until the account is complete. |
-| Confirmation summary | But the assistant only gathers. It decides nothing. Every report goes to the same rulebook — which brings in our second user. |
+### 1:50 · Reporting by form
 
----
+*Open the reporting form and scroll it.*
 
-## 3:02 – 3:20 · Switching to the expert
+A reporter gets two ways to reach us. First, a form: who's reporting, who the
+patient is, which medicine, what happened.
 
-| Screen | Narration |
-|---|---|
-| Sign out, sign in as **PV Expert** | This is the expert's view. |
-| Dashboard with live counts | How much came in, how much is genuinely reportable, how much needs a human, how much isn't our concern. |
-| Open the **Triage Inbox** | And the work queue — form, conversation, literature, all in one list, most urgent first. |
+*Pause on the empty optional fields.*
 
----
+Almost everything here is optional, deliberately. Real reports arrive half-finished
+— someone remembers the drug but not the dose. A form that insists on complete
+information doesn't get it. It just loses the report.
 
-## 3:20 – 4:02 · The determination, and its evidence
+*Fill in the complete example and submit.*
 
-| Screen | Narration |
-|---|---|
-| Click the green **Valid ICSR** case | Let's open the case we just submitted. |
-| Four criteria panel, all Present | A reportable case legally needs four things: an identifiable patient, an identifiable reporter, a suspect medicine, and an adverse event. All four are here. |
-| **Click an evidence quote** — source highlights below | Now watch. Each one is backed by the actual words from the report. Click it, and it highlights the exact sentence it came from. Nothing is asserted without evidence. |
-| Scroll to the rule panel showing `val_001 v1.0.0` | And the decision wasn't made by the AI. It was made by our own rulebook — named, version-numbered, controlled by us. |
-| | The AI reads. The rulebook decides. A qualified person approves. The human in the loop, made real. |
+So: a physician tells us about a woman in her fifties, a severe rash after starting
+her medicine, kept in hospital overnight.
 
----
+*The green Valid ICSR result appears.*
 
-## 4:02 – 4:45 · The case that matters most
+Two seconds, and it has an answer — a valid, reportable case. We'll come back to
+how.
 
-| Screen | Narration |
-|---|---|
-| Back to the queue. Click the amber **Escalated** case | Now the most important screen here. |
-| Criteria: medicine and event present, patient and reporter absent | Someone mentioned a medicine and a serious side effect — but we've no idea who the patient was, or who reported it. |
-| Zoom the rule explanation | Read what it does with that. *"We do not guess — escalating for human review rather than asserting or discarding validity."* |
-| | It could have filed this as not-a-case and the numbers would look tidier. It could have invented the missing details. It does neither — it says so, and hands the case to a human. |
-| | In safety work, a system that admits what it doesn't know is worth more than one that always has an answer. |
+### 2:20 · Reporting by conversation
 
----
+*Return to the reporter home and open the chat.*
 
-## 4:45 – 5:10 · Literature monitoring
+But plenty of people will never fill in a form. They'd rather just tell you what
+happened.
 
-| Screen | Narration |
-|---|---|
-| Click **Literature Sweep**, run one | That was channel one. This is channel two — published research. It searches the world's medical literature live and puts every article through the same assessment. |
-| Point at a *Not an ICSR* result | Most review articles correctly come back as not reportable — there's no individual patient in them. That's it being right, not lazy. |
+*Type: "my mum has been really dizzy since her new tablets."*
 
----
+And here's something a form genuinely cannot do. The assistant reads that and
+realises how much is missing.
 
-## 5:10 – 5:35 · Close: back to the vision
+*Let the agent ask its follow-up questions.*
 
-| Screen | Narration |
-|---|---|
-| Return to **Slide 3** | So, back to where we started. |
-| Highlight 01 and 02 | Collect and Review work today, on two channels, every decision evidenced and every rule named. |
-| Highlight 03 and 04 | The remaining channels plug into the same intake — built channel-agnostic from day one. And once cases are structured this reliably, Analysis and Reporting follow. |
-| Atheria title card | The AI reads. The rulebook decides. The expert approves. That's Atheria — the first of four. |
+How old is she. What's the medicine called. When did it start. It keeps going until
+the account is complete — the difference between an abandoned form and a report we
+can use.
+
+*The conversation closes with its summary.*
+
+But notice what it doesn't do. It gathers; it decides nothing. Every report goes to
+the same rulebook — which is where our second user comes in.
+
+### 2:52 · Through the expert's eyes
+
+*Sign in as the PV expert.*
+
+**`[SHORT: cut this paragraph]`** This is the expert's view, and it opens with the
+only numbers they need: how much came in, how much is genuinely reportable, how much
+needs a human, how much isn't our concern.
+
+*Open the triage inbox.*
+
+And here's the queue — form, conversation, literature, all in one list, most urgent
+first.
+
+### 3:12 · How it reached its decision
+
+*Open the green Valid ICSR case.*
+
+To be legally reportable, a report needs four things: an identifiable patient, an
+identifiable reporter, a suspect medicine, and an adverse event. All four are here.
+
+*Click an evidence quote so the source text highlights.*
+
+And here's what I'd most like you to notice. Each one is backed by the actual words
+from the report. Click it, and you're taken to the sentence it came from. There's no
+black box asking to be trusted.
+
+*Scroll to the rule panel showing val_001 v1.0.0.*
+
+And the decision wasn't made by the AI at all. It was made by our own rulebook —
+with a name, a version number, and no ability to improvise. The AI reads and
+reports what it found. The rulebook decides. A person approves. That's the human in
+the loop, made real.
+
+### 3:52 · The case that matters most
+
+*Open the amber, escalated case.*
+
+Now the most important screen here. Someone has mentioned a medicine and a serious
+side effect — but we've no idea who the patient was, or who's telling us.
+
+*Zoom in on the rule's explanation.*
+
+Read what it does with that. *We do not guess — escalating for human review rather
+than asserting or discarding validity.*
+
+It had easier options. It could have quietly filed this as not-a-case, and the
+dashboard would look tidier. It could have filled the gaps with something plausible.
+It does neither — it tells you exactly what it couldn't establish, and hands the
+case to a person.
+
+In safety work, a system that admits what it doesn't know is worth far more than one
+that always has an answer ready.
+
+### 4:32 · Watching the literature · **`[SHORT: cut this whole section]`**
+
+*Run one of the standing literature searches.*
+
+That was the first channel. This is the second — published research, which we're
+also required to monitor. It searches the world's medical literature live and puts
+every article through the same assessment.
+
+*Point at a not-reportable result.*
+
+Most review articles rightly come back as not reportable, because there's no
+individual patient in them. That's the system being correct, not lazy.
+
+### 4:58 · Back to where we started
+
+*Return to the four-stage slide.*
+
+So, back to that picture. Collect and review work today, on two channels, every
+decision showing its evidence and naming the rule behind it.
+
+*Highlight stages three and four.*
+
+**`[SHORT: cut this paragraph]`** The remaining channels plug into the same intake,
+because it was built from day one not to care where a report came from. And once
+cases are structured this reliably, analysis and reporting are the natural next
+things to build.
+
+*Atheria title card.*
+
+The AI reads. The rulebook decides. The expert approves. That's Atheria — the first
+of four.
 
 ---
 
 # Production notes
 
-## Slide sequence
+## Runtime
 
-A funnel: where PV sits → how big it is → our answer → what's built.
+The full read is 984 spoken words — about 6:33 of narration, landing near 7:00 once
+you allow for the live AI pauses and slide transitions. The vision slides account
+for roughly a minute and a half of that.
 
-1. **Lifecycle wheel** — post-market monitoring never stops
-2. **Channels → database → signal detection → reports** — the scale
-3. **One Solution, four stages** — the product vision
-4. *(optional)* Slide 3 again with 01–02 marked in progress
+Skipping everything marked `[SHORT: cut]` gives you 731 words, about 4:52 of
+narration and roughly 5:15 in total. That's the version to record if you have a
+five-minute slot.
+
+If you need to go shorter still, the next thing to lose is the voice agent section
+at 2:20 — but you'd be cutting a genuine differentiator, so only do it under
+pressure. Don't cut the escalated case; it's forty seconds and it carries the whole
+argument.
 
 ## The claim to be careful with
 
-Slide 2 shows seven input channels. **Two are built** — web form and PubMed.
-Phone, email, Instagram, Facebook and X are not. If asked, the honest answer is
-strong enough on its own:
+The channels slide shows seven ways information arrives. Two are built — the web
+form and published research. Phone, email, Instagram, Facebook and X are not. If
+asked, the honest answer is strong enough on its own: two are live, and the intake
+layer was built so adding a channel is a connector rather than a rebuild, with
+nothing downstream changing. That's architecturally true, so you can say it with a
+straight face.
 
-> "Two are live. The intake layer was built so a new channel is a connector, not
-> a rebuild — nothing downstream changes when we add one."
+Same for the four stages. Collect and review are real; analysis and reporting are
+roadmap. The vision is legitimate and the foundation genuinely exists — but
+blurring those together is the fastest way to lose a compliance audience, and
+they'll remember it.
 
-That's architecturally true. Don't imply all seven work.
+## Before you can record
 
-Same for the stages: **Collect and Review are real; Analysis and Reporting are
-roadmap.** The vision is legitimate and the foundation is genuinely built.
-Blurring the two is the fastest way to lose a compliance audience.
+The role-based sign-in doesn't exist in the code yet. Right now there's a bypass
+login and every page is visible to everyone. To shoot this as written you need a
+sign-in page offering the two roles, a reporter view holding just the form and the
+voice agent, an expert view holding the dashboard, inbox and literature sweep, and
+the voice agent embedded in the reporter view — it's a separate service today and
+isn't in this repository. Everything else works right now.
 
-## Before you can record this
+## Seed the data first
 
-The **role-based sign-in does not exist in the codebase yet.** Today there's a
-dev-bypass login and all four pages are visible to everyone. You need:
+Beforehand, submit the complete example to get the green valid case, the incomplete
+example for the amber escalated one, and the enquiry example for a not-reportable
+result. Run one literature sweep. Then leave it all in place — on the day you
+submit only one case live, which keeps the runtime down while giving you a full
+queue to explore.
 
-1. A sign-in page offering **Reporter** and **PV Expert**
-2. **Reporter view** — Report an Event and the voice agent only
-3. **PV Expert view** — Dashboard, Triage Inbox, Literature Sweep
-4. The **voice agent embedded** in the reporter view (separate service today, not
-   in this repository)
+## Things that will spoil the take
 
-Everything else works right now.
+On a free tier the first request after idle can take the better part of a minute,
+so click something to wake it immediately before recording. The live AI calls take
+around two seconds; don't edit them out, because that pause is proof it's really
+running — just keep talking over it. Use synthetic data only, never real case
+data. Zoom in on the evidence highlight and the rule name, because both are small
+on screen and both are the moments that land. And close the terminal and dev
+tools; a non-technical viewer reads any log output as an error.
 
-## Seed the data before recording
+## If you only have ninety seconds
 
-Do this beforehand so the inbox isn't empty on camera, then **don't clear it**:
+Show the four-stage slide for ten seconds, submit the complete report, show the
+four criteria, click one evidence quote, then open the escalated case and read the
+"we do not guess" line aloud. That's the whole argument.
 
-1. *Complete report* example → the green Valid ICSR
-2. *Incomplete report* example → the amber Escalated case
-3. *Enquiry only* example → a Not-an-ICSR case
-4. One literature sweep → real articles
+## Questions you'll be asked
 
-Then submit only **one** case live: short runtime, full queue.
+**Is the AI making medical decisions?** No. It reads the report and points at what
+it found. A fixed rulebook we own makes the decision, and a qualified person
+approves it.
 
-## Things that will hurt the video
+**What if the AI gets it wrong?** Every field shows the sentence it came from, so a
+reviewer checks it in seconds instead of re-reading the whole report. And the AI
+can't overrule the rulebook.
 
-- **Cold starts.** On a free tier the first request after idle can take a minute.
-  Wake it immediately before you hit record.
-- **Live AI calls take about two seconds.** Don't edit them out — that pause is
-  proof it's really running. Talk over it.
-- **Synthetic data only.** Every name in the examples is invented. Never record
-  with real case data.
-- **Zoom in on the evidence highlight and the rule name.** They're small and
-  they're the two most persuasive moments in the demo.
-- **Hide dev tools and the terminal.** Non-technical viewers read logs as errors.
+**Can it handle something it hasn't seen before?** If the information needed isn't
+there, it escalates rather than guessing. That's designed behaviour, not a failure.
 
-## If you only have 90 seconds
+**Could we prove this to an inspector?** Every decision records which rule made it,
+which version, and the evidence it relied on — and the trail can't be edited
+afterwards.
 
-Slide 3 (four stages, 10 seconds) → submit the complete report → show the four
-criteria → click one evidence quote → open the escalated case and read the "we do
-not guess" line. That's the whole argument.
+**How many of those seven channels work today?** Two. Adding another is a
+connector, not a rebuild.
 
-## Questions you will be asked
+**When do we get signal detection and the periodic reports?** They need reliable,
+structured case data to work from, which is exactly what this stage produces. It's
+why we built it first.
 
-**"Is the AI making medical decisions?"**
-No. It reads the report and points at what it found. A fixed rulebook we own makes
-the decision, and a qualified person approves it.
+**What does it cost to run?** Fractions of a penny per report assessed.
 
-**"What if the AI gets it wrong?"**
-Every field shows the sentence it came from, so a reviewer verifies in seconds
-instead of re-reading everything. And the AI cannot overrule the rulebook.
-
-**"Can it handle something it hasn't seen before?"**
-If the information needed isn't there, it escalates rather than guessing. That's
-designed behaviour, not a failure.
-
-**"Could we prove this to an inspector?"**
-Every decision records which rule made it, which version, and the evidence it
-used — and the trail can't be edited afterwards.
-
-**"How many of the seven channels work today?"**
-Two — web forms and published research. Adding another is a connector, not a
-rebuild.
-
-**"When do we get signal detection and PSURs?"**
-They need structured, reliable case data to work from, which is exactly what this
-stage produces. That's why it was built first.
-
-**"How much does it cost to run?"**
-Fractions of a penny per report assessed.
-
-**"What happens to the voice conversation afterwards?"**
-It should be archived as the source document so every detail taken from it can be
-traced back. Worth confirming that's wired up before go-live.
+**What happens to the voice conversation afterwards?** It should be archived as the
+source document, so anything taken from it can be traced back. Worth confirming
+that's wired up before go-live.
