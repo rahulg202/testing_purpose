@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signals · AI Signal Investigation Copilot</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div id="chrome"></div>
+<main id="main">
+  <div class="row between">
+    <h2>Detected signals <small id="signals-meta"></small></h2>
+    <div class="row">
+      <label for="drug-filter">Drug</label>
+      <select id="drug-filter" style="width:auto"><option value="">All drugs</option></select>
+      <label class="inline"><input type="checkbox" id="show-all"> Show all drug–event pairs (incl. not flagged)</label>
+    </div>
+  </div>
+  <p class="hint">Deterministic disproportionality (PRR, ROR 95% CI, Yates χ²). Flagged by Evans criteria: PRR ≥ 2, χ² ≥ 4, cases ≥ 3. No AI involved. Any pair can be investigated.</p>
+  <div id="run-status" role="status" aria-live="polite"></div>
+  <div class="table-wrap"><table id="signals-table">
+    <caption class="sr-only">Drug–event pairs ranked by PRR</caption>
+    <thead><tr><th scope="col">Drug</th><th scope="col">Event</th><th scope="col">Cases (a)</th><th scope="col">PRR</th><th scope="col">ROR (95% CI)</th><th scope="col">χ²</th><th scope="col">Flag</th><th scope="col">Status</th><th scope="col">Actions</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</main>
+<div id="sr-status" class="sr-only" role="status" aria-live="assertive"></div>
+<script src="/static/common.js"></script>
+<script src="/static/signals.js"></script>
+</body></html>

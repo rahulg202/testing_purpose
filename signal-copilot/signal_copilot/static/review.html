@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summary & sign-off · AI Signal Investigation Copilot</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div id="chrome"></div>
+<main id="main">
+  <h2>Summary & sign-off</h2>
+  <div id="msg"></div>
+  <div id="content" hidden>
+    <div class="card"><h3>Rule-computed recommendation</h3><p id="rec"></p></div>
+    <section class="card" aria-labelledby="sum-h">
+      <h3 id="sum-h">Investigation summary</h3>
+      <button id="btn-summary" type="button" class="primary">Draft summary with AI</button>
+      <div id="summary-box" aria-live="polite"></div>
+      <form id="signoff-form" class="stack" hidden>
+        <label for="summary-text">Summary (editable)</label>
+        <textarea id="summary-text" rows="10"></textarea>
+        <fieldset>
+          <legend>Final decision</legend>
+          <label class="inline"><input type="radio" name="decision" value="accept" checked> Accept rule recommendation</label>
+          <label class="inline"><input type="radio" name="decision" value="override"> Override recommendation</label>
+        </fieldset>
+        <div id="rec-override-fields" hidden class="stack">
+          <label for="final-rec">Final recommendation</label><input id="final-rec" type="text">
+          <label for="final-reason">Reason for override</label><input id="final-reason" type="text">
+        </div>
+        <label for="signoff-name">Reviewer name</label>
+        <input id="signoff-name" type="text" autocomplete="name" required>
+        <button type="submit" class="primary">Sign off investigation</button>
+        <p id="signoff-error" class="error" role="alert"></p>
+      </form>
+      <div id="signoff-box"></div>
+    </section>
+  </div>
+</main>
+<div id="sr-status" class="sr-only" role="status" aria-live="assertive"></div>
+<script src="/static/common.js"></script>
+<script src="/static/review.js"></script>
+</body></html>

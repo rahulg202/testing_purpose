@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask the evidence · AI Signal Investigation Copilot</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div id="chrome"></div>
+<main id="main">
+  <h2>Ask the evidence <small>RAG over this signal's knowledge base only</small></h2>
+  <div id="msg"></div>
+  <section id="content" class="card" hidden aria-label="Chat">
+    <p><span class="badge assist">Assistant · read-only · not a decision-maker</span> <span class="hint" id="kb"></span></p>
+    <p class="hint">Citations open the case page with the quoted text highlighted.</p>
+    <div id="chat-log" class="chat-log" aria-live="polite"></div>
+    <form id="chat-form" class="row">
+      <label for="chat-q" class="sr-only">Question</label>
+      <input id="chat-q" type="text" placeholder="e.g. Which cases had a positive rechallenge?" autocomplete="off">
+      <button type="submit" class="primary">Ask</button>
+    </form>
+    <div class="suggest" id="suggest"></div>
+  </section>
+</main>
+<div id="sr-status" class="sr-only" role="status" aria-live="assertive"></div>
+<script src="/static/common.js"></script>
+<script src="/static/chat.js"></script>
+</body></html>

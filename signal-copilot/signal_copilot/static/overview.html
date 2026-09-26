@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investigation · AI Signal Investigation Copilot</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div id="chrome"></div>
+<main id="main">
+  <div class="row between"><h2 id="inv-h">Investigation</h2><div id="inv-actions" class="row"></div></div>
+  <div id="inv-progress" role="status" aria-live="polite"></div>
+  <div id="content" hidden>
+    <div id="metrics" class="metrics"></div>
+    <div id="recommendation" class="card rec"></div>
+    <section class="card" aria-labelledby="cases-h">
+      <h3 id="cases-h">Cases <small class="hint">open a case to review its evidence and override causality</small></h3>
+      <div class="row">
+        <label for="case-filter">Show</label>
+        <select id="case-filter" style="width:auto">
+          <option value="">All cases</option><option value="issues">Guardrail rejections or failures</option>
+          <option value="override">Human overrides</option>
+          <option>Certain</option><option>Probable</option><option>Possible</option><option>Unlikely</option><option>Unassessable</option>
+        </select>
+      </div>
+      <div class="table-wrap"><table id="cases-table">
+        <caption class="sr-only">Cases in this signal</caption>
+        <thead><tr><th scope="col">Case</th><th scope="col">Patient</th><th scope="col">Onset</th><th scope="col">Dechal.</th><th scope="col">Rechal.</th><th scope="col">Alt. causes</th><th scope="col">Guardrail</th><th scope="col">Causality</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </section>
+  </div>
+</main>
+<div id="sr-status" class="sr-only" role="status" aria-live="assertive"></div>
+<script src="/static/common.js"></script>
+<script src="/static/overview.js"></script>
+</body></html>

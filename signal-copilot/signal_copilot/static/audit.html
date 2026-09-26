@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit trail · AI Signal Investigation Copilot</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div id="chrome"></div>
+<main id="main">
+  <div class="row between"><h2>Audit trail <small>append-only, SHA-256 hash-chained</small></h2>
+    <div class="row"><button type="button" id="btn-verify" class="primary">Verify chain</button><span id="verify-result" role="status"></span></div></div>
+  <div class="row">
+    <label for="type-filter">Event type</label>
+    <select id="type-filter" style="width:auto"><option value="">All</option></select>
+  </div>
+  <div class="table-wrap"><table id="audit-table">
+    <caption class="sr-only">Audit events, newest first</caption>
+    <thead><tr><th scope="col">#</th><th scope="col">Time (UTC)</th><th scope="col">Type</th><th scope="col">Actor</th><th scope="col">Detail</th><th scope="col">Hash</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</main>
+<script src="/static/common.js"></script>
+<script>
+"use strict";
+renderChrome({ active: "audit", crumbs: [["", "Audit trail"]] });
+let EVENTS = [];
+function detail(ev) {
+  const p = ev.payload;
+  const parts = [p.signal_id && sigLabel(p.signal_id), p.report_id, p.rule_id && `${p.rule_id} → ${p.category || p.recommendation}`,
+    p.from && `${p.from} → ${p.to}: ${p.reason}`, p.question && `Q: ${p.question}`, p.grounding && `grounding: ${p.grounding}`,
+    p.guardrail && `quotes ✓${p.guardrail.quotes_verified} ✗${p.guardrail.quotes_rejected}${p.from_cache ? " (cache)" : ""}`,
+    p.prompt_version, p.error, p.final_recommendation && `final: ${p.final_recommendation}`].filter(Boolean);
+  return esc(parts.join(" · "));
+}
+function render() {
+  const t = $("#type-filter").value;
+  $("#audit-table tbody").innerHTML = EVENTS.filter((e) => !t || e.type === t).map((ev) =>
+    `<tr><td>${ev.seq}</td><td>${esc(ev.ts.slice(0, 23))}</td><td>${esc(ev.type)}</td><td>${esc(ev.actor)}</td><td>${detail(ev)}</td><td><code title="${esc(ev.hash)}">${esc(ev.hash.slice(0, 12))}</code></td></tr>`).join("");
+}
+api("/api/audit?limit=1000").then((d) => {
+  EVENTS = d.events;
+  $("#type-filter").innerHTML = `<option value="">All</option>` + [...new Set(EVENTS.map((e) => e.type))].sort().map((x) => `<option>${esc(x)}</option>`).join("");
+  render();
+});
+$("#type-filter").addEventListener("change", render);
+$("#btn-verify").addEventListener("click", async () => {
+  const r = await api("/api/audit/verify");
+  $("#verify-result").innerHTML = r.valid ? `<span class="badge b-ok">✓ Chain intact: ${r.events} events</span>` : `<span class="badge b-bad">✗ Tampering detected at event #${r.broken_at_seq}</span>`;
+});
+</script>
+</body></html>
